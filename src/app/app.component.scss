@@ -1,0 +1,73 @@
+.rubrica-visuale{
+  display: flex;
+
+
+}
+
+
+
+.aggiungi-contatto{
+  display: flex;
+  flex-direction: column;
+  margin: 1em;
+  width: 17em;
+  border-radius: 5px;
+  .salva{
+
+    display: flex;
+    justify-items: flex-end;
+
+  }
+
+}
+
+.visualizzaContatti{
+.table-div{
+  border-radius: 5px;
+  overflow: hidden;
+}
+table {
+  width: 100%;
+
+}
+}
+
+
+
+.registrationButton{
+  display: none;
+
+  }
+  @media screen and (min-width: 900px) {
+    .aggiungi-contatto{
+      display: block;
+    }
+      .registrationButton{
+        display: none;
+
+        }
+
+  }
+@media screen and (max-width: 900px) {
+  .aggiungi-contatto{
+    display: none;
+  }
+
+  .registrationButton{
+    display: block;
+
+    }
+
+
+}
+
+.header{
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  width : 100vw;
+
+}
+
+
+

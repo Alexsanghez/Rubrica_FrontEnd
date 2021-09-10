@@ -1,0 +1,44 @@
+<h1 mat-dialog-title>Register Contact</h1>
+<div mat-dialog-content>
+
+  <mat-form-field appearance="fill">
+    <mat-label>Name</mat-label>
+    <input matInput  [formControl]="name " required>
+    <mat-error *ngIf="name.hasError('required')">Please enter a name</mat-error>
+  </mat-form-field>
+
+  <mat-form-field appearance="fill">
+    <mat-label>Surname</mat-label>
+    <input matInput  [formControl]="surname " required>
+    <mat-error *ngIf="surname.hasError('required')">Please enter a surname</mat-error>
+  </mat-form-field>
+
+  <mat-form-field appearance="fill">
+    <mat-label>telephone Number</mat-label>
+    <input matInput  [formControl]="phone " required>
+    <mat-error *ngIf="phone.hasError('required')">Please enter a phone number</mat-error>
+  </mat-form-field>
+
+  <mat-form-field appearance="fill">
+    <mat-label>email</mat-label>
+    <input matInput  [formControl]="email " required>
+    <mat-error *ngIf="email.invalid">{{getErrorMessage()}}</mat-error>
+
+  </mat-form-field>
+
+  <mat-form-field appearance="fill">
+    <mat-label>birthday</mat-label>
+    <input matInput  [matDatepicker]="picker" [formControl]="birthday " required>
+    <mat-error *ngIf="birthday.hasError('required')">Please enter a valid birtday : (MM/DD/YYYY)</mat-error>
+    <mat-datepicker-toggle matSuffix [for]="picker"> </mat-datepicker-toggle>
+    <mat-datepicker #picker></mat-datepicker>
+  </mat-form-field>
+
+</div>
+
+<div mat-dialog-actions>
+
+  <button mat-button (click)="onNoClick()">No Thanks</button>
+  <button mat-button (click)="saveContact(name.value, surname.value, phone.value, email.value, birthday.value)">Ok</button>
+
+</div>

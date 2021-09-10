@@ -1,0 +1,40 @@
+<h1 mat-dialog-title>Modify</h1>
+<div mat-dialog-content>
+
+  <mat-form-field appearance="fill">
+    <mat-label>Name</mat-label>
+    <input matInput [(ngModel)]="data.name" [formControl]="name " required>
+  </mat-form-field>
+
+  <mat-form-field appearance="fill">
+    <mat-label>Surname</mat-label>
+    <input matInput [(ngModel)]="data.surname" [formControl]="surname " required>
+  </mat-form-field>
+
+  <mat-form-field appearance="fill">
+    <mat-label>telephoneNumber</mat-label>
+    <input matInput [(ngModel)]="data.telephoneNumber" [formControl]="phone" required type="number">
+
+  </mat-form-field>
+
+  <mat-form-field appearance="fill">
+    <mat-label>email</mat-label>
+    <input matInput [(ngModel)]="data.email" [formControl]="email" required>
+
+  </mat-form-field>
+
+  <mat-form-field appearance="fill">
+    <mat-label>birthday</mat-label>
+    <input matInput [(ngModel)]="data.birthday" [matDatepicker]="picker" [formControl] = "birthday" required>
+    <mat-datepicker-toggle matSuffix [for]="picker" > </mat-datepicker-toggle>
+    <mat-datepicker #picker></mat-datepicker>
+  </mat-form-field>
+
+</div>
+
+<div mat-dialog-actions>
+
+  <button mat-button (click)="onNoClick()">No Thanks</button>
+  <button mat-button (click)="modifyContact(data)" >Ok</button>
+
+</div>

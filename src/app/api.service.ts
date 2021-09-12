@@ -6,13 +6,14 @@ import { HttpClient } from "@angular/common/http";
 })
 export class ApiService {
 
+
   url = "https://run.mocky.io"
 
 
   constructor(private http : HttpClient) { }
 
   getRubrica(){
-    return this.http.get(this.url + "/v3/373ff9f3-9db5-473e-a0ec-b5abac0b4328");
+    return this.http.get(this.url + "/v3/0b0b0d4c-a162-4495-8325-c718f647054e");
   }
 
   postContact(){

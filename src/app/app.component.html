@@ -23,7 +23,7 @@
 
     <mat-form-field appearance="fill">
       <mat-label>telephone Number</mat-label>
-      <input matInput  [formControl]="phone " required>
+      <input matInput  [formControl]="phone " maxlength="10" required>
       <mat-error *ngIf="phone.hasError('required')">Please enter a phone number</mat-error>
     </mat-form-field>
 

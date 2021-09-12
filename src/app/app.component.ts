@@ -3,13 +3,7 @@ import { ApiService } from './api.service';
 import { FormControl, Validators } from '@angular/forms';
 import { MatDialog, MatDialogRef, MAT_DIALOG_DATA } from '@angular/material/dialog';
 
-
-
-
-
-
-
-
+//Dichiaro un'interfaccia dove salvare il contatto
 interface Contatto {
   name: any;
   surname: any;
@@ -21,21 +15,30 @@ interface Contatto {
 
 
 @Component({
-  selector: 'app-root',
+  selector: 'body',
   templateUrl: './app.component.html',
   styleUrls: ['./app.component.scss']
 })
 export class AppComponent {
   title = 'Rubrica';
 
-
+  //Form Controls
   name = new FormControl('', [Validators.required]);
   surname = new FormControl('', [Validators.required]);
   phone = new FormControl('', [Validators.required]);
   email = new FormControl('', [Validators.required, Validators.email]);
   birthday = new FormControl('', [Validators.required]);
 
+  //Date limiter
+  date = new Date();
+  currentYear = this.date.getFullYear();
+  currentDay = this.date.getUTCDate();
+  currentMonth = this.date.getUTCMonth();
+  dateLimiter = new Date((this.currentYear - 10), this.currentMonth, this.currentDay);
+
+  //Table columns
   displayedColumns: string[] = ['name', 'surname', 'phonenumber', 'email', 'birthday', 'modify', 'eliminate'];
+
 
   contatti: Contatto[] = [];
 
@@ -47,26 +50,14 @@ export class AppComponent {
     //Called after the constructor, initializing input properties, and the first call to ngOnChanges.
     //Add 'implements OnInit' to the class.
 
-
-
-
     this.apiConnection.getRubrica().subscribe((r: any) => {
       this.contatti = r;
 
-
-
-
-      console.log(this.contatti)
     })
-
-    this.apiConnection.postContact().subscribe((s: any) => {
-      console.log(s);
-    })
-
 
 
   }
-
+  //Funzione per salvare un contatto quando la larghezza del sito e' maggiore di 1000px
   saveContact(name: any, surname: any, phone: any, email: any, birthday: any) {
 
     let contattoDaSalvare: Contatto = {
@@ -83,7 +74,7 @@ export class AppComponent {
   }
 
 
-
+  //Apro la modale per registrare un utente
   openRegister(): void {
     const dialogRef = this.dialog.open(DialogBoxModify, {
       width: '300px',

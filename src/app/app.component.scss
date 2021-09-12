@@ -4,21 +4,26 @@
 
 }
 
+h1{
+  margin-left: 0.5em;
+}
+
+h2{
+  margin-bottom: 0;
+}
 
 
-.aggiungi-contatto{
+
+.registraContatto{
+  margin-left: 1em;
+}
+.formaggiungiContatto{
   display: flex;
   flex-direction: column;
-  margin: 1em;
+  margin-right: 1em;
+  padding: 10px;
   width: 17em;
   border-radius: 5px;
-  .salva{
-
-    display: flex;
-    justify-items: flex-end;
-
-  }
-
 }
 
 .visualizzaContatti{
@@ -28,8 +33,12 @@
 }
 table {
   width: 100%;
-
+  border-radius: 10px;
 }
+}
+
+.mat-cell {
+  padding: 8px 8px 8px 0;
 }
 
 
@@ -38,8 +47,8 @@ table {
   display: none;
 
   }
-  @media screen and (min-width: 900px) {
-    .aggiungi-contatto{
+  @media screen and (min-width: 1000px) {
+    .registraContatto{
       display: block;
     }
       .registrationButton{
@@ -48,15 +57,20 @@ table {
         }
 
   }
-@media screen and (max-width: 900px) {
-  .aggiungi-contatto{
+@media screen and (max-width: 1000px) {
+  .registraContatto{
     display: none;
   }
 
   .registrationButton{
     display: block;
+   }
 
-    }
+   .visualizzaContatti{
+     margin-left: 1em;
+   }
+
+
 
 
 }

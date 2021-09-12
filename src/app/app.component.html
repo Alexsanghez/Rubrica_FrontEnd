@@ -52,7 +52,7 @@
 
     <div class="tablediv">
 
-    <table mat-table [dataSource]="contatti" class="mat-elevation-z8">
+    <table mat-table [dataSource]="dataSource" class="mat-elevation-z8">
 
       <div class="table-column">
         <ng-container matColumnDef="name">
@@ -106,6 +106,14 @@
       <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
 
     </table>
+
+    <mat-paginator [length]="this.contatti.length"
+              [pageSize]="10"
+              aria-label="Select page"
+              showFirstLastButtons>
+
+    </mat-paginator>
+
   </div>
   </div>
 

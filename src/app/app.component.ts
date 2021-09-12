@@ -74,7 +74,7 @@ export class AppComponent {
   }
 
 
-
+  //Apro la modale per registrare un utente
   openRegister(): void {
     const dialogRef = this.dialog.open(DialogBoxModify, {
       width: '300px',

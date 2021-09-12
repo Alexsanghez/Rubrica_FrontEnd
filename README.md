@@ -30,7 +30,7 @@ To get more help on the Angular CLI use `ng help` or go check out the [Angular C
 
 -Aggiunta interfacia per visualizzare la rubrica e per aggiungere un contatto.<br />
 -Per eliminare un contatto bisogna dare la conferma.<br />
--Aggiunte validazioni per il form : nome,cognome,numero di telefono e email.<br />
+-Aggiunte validazioni per il form : nome,cognome,numero di telefono,email e data di nascita.<br />
 -Agiunta di modali per cancellare, modificare e aggiungere contatti.<br />
 -Responsive Layout : se la larghezza dello schermo e' inferiore di 1000px la colonna per registrare un contatto collassa e al suo posto nel header comparira' un bottone per aprire la modale.<br />
 -Recupero dell’intera rubrica da un mocky (https://run.mocky.io/v3/373ff9f3-9db5-473e-a0ec-b5abac0b4328).<br />

@@ -28,7 +28,7 @@
 
   <mat-form-field appearance="fill">
     <mat-label>birthday</mat-label>
-    <input matInput  [matDatepicker]="picker" [formControl]="birthday " required>
+    <input matInput  [matDatepicker]="picker" [max]="dateLimiter" [formControl]="birthday " required>
     <mat-error *ngIf="birthday.hasError('required')">Please enter a valid birtday : (MM/DD/YYYY)</mat-error>
     <mat-datepicker-toggle matSuffix [for]="picker"> </mat-datepicker-toggle>
     <mat-datepicker #picker></mat-datepicker>

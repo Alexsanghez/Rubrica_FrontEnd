@@ -11,11 +11,11 @@ import { MatTableDataSource } from '@angular/material/table';
 
 //Dichiaro un'interfaccia con i valori dei contatti
 interface Contatto {
-  name: any;
-  surname: any;
-  telephoneNumber: any;
-  email: any;
-  birthday: any;
+  name: string;
+  surname: string;
+  telephoneNumber: string;
+  email: string;
+  birthday: Date;
 }
 
 @Component({
@@ -79,7 +79,7 @@ export class AppComponent {
     this.dataSource.paginator = this.paginator;
   }
   //Funzione per salvare un contatto quando la larghezza del sito e' maggiore di 1000px
-  saveContact(name: any, surname: any, phone: any, email: any, birthday: any) {
+  saveContact(name: string, surname: string, phone: string, email: string, birthday: Date) {
     let contattoDaSalvare: Contatto = {
       name: name,
       surname: surname,
@@ -119,7 +119,7 @@ export class AppComponent {
   }
 
   //Apro la modale per eliminare un utente e gli passo i dati dell'utente selezionato
-  openEliminate(user: any): void {
+  openEliminate(user: Contatto): void {
     const dialogRef = this.dialog.open(DialogBoxEliminate, {
       width: '250px',
       data: {
@@ -154,6 +154,16 @@ export class DialogBoxModify {
   phone = new FormControl('', [Validators.required]);
   email = new FormControl('', [Validators.required, Validators.email]);
   birthday = new FormControl('', [Validators.required]);
+
+  date = new Date();
+  currentYear = this.date.getFullYear();
+  currentDay = this.date.getUTCDate();
+  currentMonth = this.date.getUTCMonth();
+  dateLimiter = new Date(
+    this.currentYear - 10,
+    this.currentMonth,
+    this.currentDay
+  );
 
   constructor(
     public dialogRef: MatDialogRef<DialogBoxModify>,
@@ -204,10 +214,11 @@ export class DialogBoxEliminate {
   }
 
   //Funzione per eliminare un contatto
-  eliminateContact(user: any) {
+  eliminateContact() {
     this.dialogRef.close();
 
-    console.log(user + ' Contatto eliminato');
+    console.log(this.data);
+    console.log(" Eliminato");
   }
 }
 
@@ -223,6 +234,18 @@ export class DialogBoxRegister {
   email = new FormControl('', [Validators.required, Validators.email]);
   birthday = new FormControl('', [Validators.required]);
 
+  date = new Date();
+  currentYear = this.date.getFullYear();
+  currentDay = this.date.getUTCDate();
+  currentMonth = this.date.getUTCMonth();
+  dateLimiter = new Date(
+    this.currentYear - 10,
+    this.currentMonth,
+    this.currentDay
+  );
+
+
+
   constructor(
     public dialogRef: MatDialogRef<DialogBoxRegister>,
     @Inject(MAT_DIALOG_DATA) public data: Contatto
@@ -233,7 +256,7 @@ export class DialogBoxRegister {
   }
 
   //Funzione per salvare il contatto
-  saveContact(name: any, surname: any, phone: any, email: any, birthday: any) {
+  saveContact(name: string, surname: string, phone: string, email: string, birthday: Date) {
     let contattoDaSalvare: Contatto = {
       name: name,
       surname: surname,
